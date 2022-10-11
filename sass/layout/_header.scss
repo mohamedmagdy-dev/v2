@@ -1,0 +1,85 @@
+// Use Mixin
+@use "../sass-utils/mixins" as *;
+
+// Use Vars
+@use "../sass-utils/vars" as *;
+
+header {
+  padding: {
+    top: 10px;
+    bottom: 10px;
+    
+  }
+  position: relative;
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include mediaEdit(md) {
+      flex-direction: column;
+    }
+    @include mediaEdit(sm) {
+      flex-direction: row;
+    }
+    nav {
+      &.active {
+        display: block;
+      }
+      @include mediaEdit(sm) {
+        display: none;
+        position: absolute;
+        top: 92px;
+        z-index: 99;
+        left: 0;
+        width: 100%;
+        background-color: white;
+      }
+      ul {
+        display: flex;
+        @include mediaEdit(md) {
+          margin: {
+            top: 20px;
+            bottom: 20px;
+          }
+        }
+        @include mediaEdit(sm) {
+          flex-direction: column;
+          margin: 0;
+        }
+        a {
+          text-transform: capitalize;
+          white-space: nowrap;
+          display: block;
+          padding: 10px;
+          margin-right: 20px;
+          color: black;
+          font: {
+            weight: bold;
+            size: 17px;
+          }
+          transition: $duration;
+          @include mediaEdit(sm) {
+            margin-right: 0;
+            &:hover {
+              padding-left: 10px;
+              background-color: $main-color;
+              color: white;
+            }
+          }
+          &.active {
+            background-color: $main-color;
+            color: white;
+          }
+        }
+      }
+    }
+    a.hide {
+      display: none;
+      @include mediaEdit(sm) {
+        display: block;
+      }
+      color: black;
+      font-size: 25px;
+    }
+  }
+}

@@ -1,0 +1,80 @@
+@use "vars" as *;
+
+// Mixin For Media Queries
+@mixin media($size) {
+  @if $size == sm {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if $size == md {
+    @media (min-width: 992px) {
+      @content;
+    }
+  } @else if $size == lg {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}
+
+// Mixin For Media Queries For Responsive
+@mixin mediaEdit($size) {
+  @if $size == sm {
+    @media (max-width: 767px) {
+      @content;
+    }
+  } @else if $size == md {
+    @media (max-width: 991px) {
+      @content;
+    }
+  } @else if $size == lg {
+    @media (max-width: 1119px) {
+      @content;
+    }
+  }
+}
+
+// Mixin Create button From A tag
+/// @param[
+///        bgColor ,
+///        direction for Margin,
+///        margin Count
+///        bgColorHover
+///        hoverColor
+///        ]
+
+@mixin button($bgColor, $direction, $margin, $bgColorHover, $hoverColor) {
+  a {
+    white-space: nowrap;
+    background-color: $bgColor;
+    transition: $duration;
+    color: white;
+    font-weight: bold;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+    padding: 15px 50px;
+    font-size: 20px;
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    @if $direction == top {
+      margin-top: $margin;
+    } @else if $direction == bottom {
+      margin-bottom: $margin;
+    } @else if $direction == right {
+      margin-right: $margin;
+    } @else if $direction == left {
+      margin-left: $margin;
+    } @else {
+      margin: $margin;
+    }
+    @content;
+    &:hover {
+      background-color: $bgColorHover;
+      color: $hoverColor;
+    }
+  }
+}

@@ -1,0 +1,73 @@
+@use '../sass-utils/vars' as *;
+// Start footer
+footer {
+  background-color: $footer-color;
+  padding: 30px 0;
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    .col {
+      &:nth-child(3) {
+        ul {
+          li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 10px;
+            &:not(:first-of-type) {
+              border-bottom: 1px solid #bcc5d063;
+            }
+          }
+        }
+      }
+      img {
+        width: 240px;
+        margin-bottom: 20px;
+      }
+      p {
+        color: #bcc5d0;
+        line-height: 25px;
+      }
+      ul {
+        li.title {
+          font-weight: bold;
+          font-size: 25px;
+          color: white;
+          margin-bottom: 20px;
+        }
+        li.number {
+          font-size: 20px;
+        }
+        li {
+          color: #bcc5d0;
+          margin-bottom: 15px;
+          a {
+            color: #bcc5d0;
+          }
+          i {
+            margin-right: 10px;
+          }
+        }
+      }
+      .social {
+        margin-top: 30px;
+        a {
+          color: white;
+          margin-right: 20px;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+// End footer
+
+// Start Copyright
+.copyr {
+  padding: 30px 0;
+  .container {
+    text-align: center;
+  }
+}
+// End Copyright

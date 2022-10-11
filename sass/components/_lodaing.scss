@@ -1,0 +1,20 @@
+@use "../sass-utils/helper" as *;
+.load {
+	background-color: white;
+	width: 100%;
+	position: fixed;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	z-index: 999;
+	@extend %c-flex;
+	img {
+		width: 400px;
+	}
+	animation: loading 5s linear 2s ;
+}
+@keyframes loading {
+	100% {
+		opacity: 0;
+	}
+}
